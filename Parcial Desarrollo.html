@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberAlert - Seguridad Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: #000000;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 2px solid #00ccff;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 0 15px #00ccff;
+            border: 2px solid #00ccff;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            text-shadow: 0 0 10px #00ccff;
+            color: #00ccff;
+        }
+        
+        nav {
+            margin-top: 10px;
+        }
+        
+        nav a {
+            color: #00ccff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px 10px;
+            border: 1px solid #00ccff;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(0, 204, 255, 0.1);
+            box-shadow: 0 0 10px #00ccff;
+        }
+        
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #111111;
+            border-radius: 8px;
+            border: 1px solid #00ccff;
+        }
+        
+        h2 {
+            color: #00ccff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #00ccff;
+        }
+        
+        h3 {
+            color: #00ccff;
+            margin: 15px 0 10px 0;
+        }
+        
+        h4 {
+            color: #00ccff;
+            margin: 8px 0;
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .amenazas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .amenaza {
+            background: #1a1a1a;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #00ccff;
+            min-height: 180px;
+        }
+        
+        .consejos {
+            background: rgba(0, 204, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #00ccff;
+        }
+        
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 45%;
+            height: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #00ccff;
+            background: #1a1a1a;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 6px;
+        }
+        
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+        
+        .play-button {
+            width: 50px;
+            height: 50px;
+            background: #00ccff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+            text-decoration: none;
+        }
+        
+        form {
+            max-width: 500px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00ccff;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            background-color: #1a1a1a;
+            border: 1px solid #00ccff;
+            border-radius: 5px;
+            color: #fff;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00ccff;
+        }
+        
+        button {
+            background: #000000;
+            color: #00ccff;
+            border: 1px solid #00ccff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background: rgba(0, 204, 255, 0.1);
+            box-shadow: 0 0 10px #00ccff;
+        }
+        
+        footer {
+            background: #000000;
+            padding: 15px 0;
+            text-align: center;
+            margin-top: 30px;
+            border-top: 2px solid #00ccff;
+        }
+        
+        footer p {
+            color: #00ccff;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            padding: 5px 0;
+            color: #fff;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-card {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ccff;
+        }
+        
+        .estadisticas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .estadistica {
+            text-align: center;
+            padding: 12px;
+            background: rgba(0, 204, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid #00ccff;
+        }
+        
+        .numero {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ccff;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🛡️</div>
+                <h1 class="logo-text">CyberAlert</h1>
+            </div>
+            <p style="color: #00ccff;">Protección contra Phishing, Smishing y Vishing</p>
+            <nav>
+                <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+                <a href="#" onclick="mostrarSeccion('acerca')">Acerca</a>
+                <a href="#" onclick="mostrarSeccion('contacto')">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Página de Inicio -->
+        <section id="inicio">
+            <h2>Amenazas Digitales Modernas</h2>
+            
+            <p>El phishing, smishing y vishing son técnicas de ingeniería social utilizadas por ciberdelincuentes para obtener información confidencial como contraseñas, datos bancarios y información personal mediante el engaño a usuarios desprevenidos.</p>
+            
+            <div class="amenazas">
+                <div class="amenaza">
+                    <h3>📧 Phishing</h3>
+                    <p></strong> El Phishing es una de las técnicas de ingeniería social más comunes y peligrosas utilizadas por los ciberdelincuentes. Consiste fundamentalmente en el fraude y el engaño para manipular a una víctima y conseguir que revele información personal, financiera o credenciales de acceso. El método más habitual es el uso de correos electrónicos fraudulentos que imitan la identidad visual y el tono de comunicación de una entidad legítima y confiable, como un banco, una red social popular, una empresa de paquetería o un servicio de streaming.</p>
+                </div>
+                
+                <div class="amenaza">
+                    <h3>📱 Smishing</h3>
+                    <p></> El Smishing es una táctica de fraude que se ejecuta a través de los mensajes de texto (SMS) en dispositivos móviles, de ahí su nombre, una combinación de "SMS" y "phishing". En esencia, es el acto de enviar mensajes a la víctima haciéndose pasar por una entidad legítima y confiable, como una compañía de telecomunicaciones, un servicio de paquetería (con un aviso de entrega urgente) o una institución bancaria (con una alerta de seguridad falsa). El mensaje suele ser breve y alarmante, con el único propósito de incitar a la víctima a hacer clic en un enlace malicioso o a llamar a un número fraudulento.</p>
+                </div>
+                
+                <div class="amenaza">
+                    <h3>📞 Vishing</h3>
+                    <p></strong>El Vishing es una técnica de fraude que utiliza llamadas de voz (de ahí la combinación de "Voice" y "phishing") para engañar a las víctimas. En este escenario, los ciberdelincuentes se comunican telefónicamente, a menudo empleando la tecnología VoIP (Voz sobre Protocolo de Internet) para manipular el identificador de llamadas y hacerlo pasar por el número oficial de una institución legítima, como un banco, una entidad gubernamental o un soporte técnico. El atacante se presenta como un representante, creando un escenario de alta presión o una "emergencia" (por ejemplo, una actividad sospechosa en la cuenta bancaria) para forzar al usuario a actuar inmediatamente. </p>
+                </div>
+            </div>
+            
+            <h3>Videos Educativos</h3>
+            <div class="videos">
+                <!-- Video Phishing -->
+                <div>
+                    <h4>¿Qué es el Phishing?</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/GIxWzwxdH48" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Video Smishing -->
+                <div>
+                    <h4>¿Sabes qué es el Smishing?</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YezzKKRs8dM" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                
+                <div>
+                    <h4>Cómo Identificar Vishing</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/x7oIy3vMyrY" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="consejos">
+                <h3>🔒 Consejos de Seguridad Esenciales</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Para Phishing</h4>
+                        <ul>
+                            <li>✓ Verifica siempre la dirección del remitente</li>
+                            <li>✓ Revisa errores gramaticales en los mensajes</li>
+                            <li>✓ No hagas clic en enlaces sospechosos</li>
+                            <li>✓ Usa autenticación de dos factores</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Para Smishing</h4>
+                        <ul>
+                            <li>✓ No respondas a mensajes de números desconocidos</li>
+                            <li>✓ Verifica promociones en sitios oficiales</li>
+                            <li>✓ Usa aplicaciones oficiales para transacciones</li>
+                            <li>✓ Bloquea números sospechosos</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Para Vishing</h4>
+                        <ul>
+                            <li>✓ No des información personal por teléfono</li>
+                            <li>✓ Verifica llamando a la empresa oficialmente</li>
+                            <li>✓ Cuelga si presionan por información urgente</li>
+                            <li>✓ Registra tu número en listas No Llamar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página Acerca de -->
+        <section id="acerca" class="hidden">
+            <h2>Acerca de CyberAlert</h2>
+            
+            <p>CyberAlert es una iniciativa educativa creada para concienciar y proteger a usuarios y empresas contra las amenazas de ingeniería social digital.</p>
+            
+            <h3>Videos de Concientización</h3>
+            <div class="videos">
+                
+                <div>
+                    <h4>Protección Contra Estafas</h4>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/WsbbAxfQN2M" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>📊 Estadísticas Importantes</h3>
+            <div class="estadisticas">
+                <div class="estadistica">
+                    <div class="numero">85%</div>
+                    <p>de los ciberataques utilizan ingeniería social</p>
+                </div>
+                <div class="estadistica">
+                    <div class="numero">45%</div>
+                    <p>de los incidentes son por phishing</p>
+                </div>
+                <div class="estadistica">
+                    <div class="numero">150%</div>
+                    <p>aumento en ataques de smishing en 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de Contacto -->
+        <section id="contacto" class="hidden">
+            <h2>Contacto y Reportes</h2>
+            
+            <p>Si has identificado una amenaza o has sido víctima de phishing, smishing o vishing, repórtalo aquí.</p>
+            
+            <form id="form-contacto">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tipo">Tipo de amenaza:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">Selecciona el tipo de amenaza</option>
+                        <option value="phishing">Phishing (Correo electrónico)</option>
+                        <option value="smishing">Smishing (Mensaje de texto)</option>
+                        <option value="vishing">Vishing (Llamada telefónica)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Descripción del incidente:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                
+                <button type="submit">Enviar Reporte</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>CyberAlert &copy; 2025 - Universidad Tecnológica de Panamá</p>
+        </div>
+    </footer>
+
+    <script>
+        function mostrarSeccion(seccionId) {
+            document.querySelectorAll('section').forEach(seccion => {
+                seccion.classList.add('hidden');
+            });
+            document.getElementById(seccionId).classList.remove('hidden');
+        }
+
+        document.getElementById('form-contacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu reporte! Tu información ayuda a proteger a la comunidad.');
+            this.reset();
+        });
+
+        mostrarSeccion('inicio');
+    </script>
+</body>
+</html>
